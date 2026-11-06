@@ -1,9 +1,27 @@
+
+import { useMyList } from "../../../context/MyListContext";
+
 export function DownloadCard({
     download,
     onDelete,
     activeMenu,
     setActiveMenu,
 }) {
+
+    const { addToMyList, isInMyList } = useMyList();
+
+    // Convert download into a movie object
+    const movieForList = {
+        id: `download-${download.id}`,
+        title: download.title,
+        poster: download.poster,
+        year: download.year ?? "—",
+        duration: download.duration ?? download.size,
+        rating: download.rating ?? "—",
+        genre: download.genre ?? "Downloaded"
+    };
+
+    const saved = isInMyList(movieForList.id);
 
     // Resume
     function handleResume() {
@@ -23,29 +41,37 @@ export function DownloadCard({
     async function handleShare() {
 
         if (navigator.share) {
-
             try {
-
                 await navigator.share({
                     title: download.title,
                     text: `Check out ${download.title}!`,
                 });
-
             } catch (error) {
                 console.log("Share cancelled");
             }
-
         } else {
-
-            await navigator.clipboard.writeText(download.title);
-            alert("Movie title copied to clipboard!");
-
+            try {
+                await navigator.clipboard.writeText(download.title);
+                alert("Movie title copied to clipboard!");
+            } catch (error) {
+                alert("Unable to copy movie title.");
+            }
         }
 
         setActiveMenu(null);
     }
 
-    // Delete
+    // Add to My List
+    function handleAddToMyList() {
+
+        if (!saved) {
+            addToMyList(movieForList);
+        }
+
+        setActiveMenu(null);
+    }
+
+    // Delete Download
     function handleDelete() {
         onDelete(download.id);
         setActiveMenu(null);
@@ -55,11 +81,15 @@ export function DownloadCard({
 
         <div className="relative flex items-center gap-4 bg-zinc-900 rounded-xl p-4 hover:bg-zinc-800 transition-all duration-300">
 
+            {/* Movie Poster */}
+
             <img
                 src={download.poster}
                 alt={download.title}
                 className="w-20 h-28 object-cover rounded-lg"
             />
+
+            {/* Movie Information */}
 
             <div className="flex-1">
 
@@ -74,6 +104,7 @@ export function DownloadCard({
             </div>
 
             {/* THREE DOTS BUTTON */}
+
             <button
                 onClick={() =>
                     setActiveMenu(
@@ -88,6 +119,7 @@ export function DownloadCard({
             </button>
 
             {/* DROPDOWN MENU */}
+
             {activeMenu === download.id && (
 
                 <div className="absolute right-4 top-16 w-56 bg-zinc-950 border border-zinc-700 rounded-xl shadow-2xl overflow-hidden z-50">
@@ -104,6 +136,16 @@ export function DownloadCard({
                         className="w-full text-left px-4 py-3 text-white hover:bg-zinc-800 flex items-center gap-3"
                     >
                         ℹ Movie Details
+                    </button>
+
+                    {/* ADD TO MY LIST */}
+
+                    <button
+                        onClick={handleAddToMyList}
+                        disabled={saved}
+                        className="w-full text-left px-4 py-3 text-white hover:bg-zinc-800 disabled:text-green-500 flex items-center gap-3"
+                    >
+                        {saved ? "✓ Already in My List" : "＋ Add to My List"}
                     </button>
 
                     <button
@@ -127,5 +169,4 @@ export function DownloadCard({
         </div>
 
     );
-
 }
