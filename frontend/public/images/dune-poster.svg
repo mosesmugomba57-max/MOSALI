@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900">
+  <defs><linearGradient id="d" x2="0" y2="1"><stop stop-color="#1b2730"/><stop offset=".55" stop-color="#b76a38"/><stop offset="1" stop-color="#edbd72"/></linearGradient></defs>
+  <rect width="600" height="900" fill="url(#d)"/>
+  <circle cx="300" cy="245" r="118" fill="#f4c97d" opacity=".9"/>
+  <path d="M0 520Q140 390 300 520t300-20v400H0z" fill="#be713f"/>
+  <path d="M0 630Q150 520 300 635t300-15v280H0z" fill="#8c482f"/>
+  <g transform="translate(300 430)">
+    <circle cy="-45" r="58" fill="#1b1a19"/>
+    <path d="M-38-70h76l25 75H-63z" fill="#25201e"/>
+    <path d="M-75 400l25-330h100l25 330z" fill="#15191b"/>
+    <path d="M-42 70l42 95 42-95" fill="none" stroke="#313436" stroke-width="18"/>
+  </g>
+  <text x="300" y="810" fill="#fff" font-family="Arial,sans-serif" font-size="105" font-weight="bold" text-anchor="middle">DUNE</text>
+</svg>

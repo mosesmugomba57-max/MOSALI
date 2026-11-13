@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 900">
+  <defs>
+    <linearGradient id="bg" x2="0" y2="1"><stop stop-color="#092d3b"/><stop offset="1" stop-color="#02070a"/></linearGradient>
+    <linearGradient id="skin" x2="0" y2="1"><stop stop-color="#65cce0"/><stop offset="1" stop-color="#277da1"/></linearGradient>
+  </defs>
+  <rect width="600" height="900" fill="url(#bg)"/>
+  <circle cx="300" cy="265" r="175" fill="#0b8fa8" opacity=".18"/>
+  <path d="M300 140c-105 0-172 84-172 205 0 116 62 211 172 250 110-39 172-134 172-250 0-121-67-205-172-205z" fill="url(#skin)" stroke="#8ee9f2" stroke-width="8"/>
+  <path d="M128 330c-64 12-92 63-72 113 25 63 104 72 155 24l-8-70zM472 330c64 12 92 63 72 113-25 63-104 72-155 24l8-70z" fill="url(#skin)" stroke="#8ee9f2" stroke-width="8"/>
+  <ellipse cx="238" cy="345" rx="55" ry="38" fill="#f1fbff"/><ellipse cx="362" cy="345" rx="55" ry="38" fill="#f1fbff"/>
+  <ellipse cx="238" cy="345" rx="30" ry="31" fill="#d5b942"/><ellipse cx="362" cy="345" rx="30" ry="31" fill="#d5b942"/>
+  <path d="M300 365l-32 73 32 18 32-18z" fill="#4b92ad"/>
+  <path d="M220 480q80 54 160 0" fill="none" stroke="#092936" stroke-width="14" stroke-linecap="round"/>
+  <path d="M300 595v305M105 900q195-148 390 0" fill="none" stroke="#72d6e5" stroke-width="28"/>
+  <text x="300" y="805" fill="#fff" font-family="Arial,sans-serif" font-size="88" font-weight="bold" text-anchor="middle">AVATAR</text>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900">
+  <defs>
+    <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#071b2c"/><stop offset=".65" stop-color="#145b67"/><stop offset="1" stop-color="#07110f"/></linearGradient>
+    <radialGradient id="moon"><stop stop-color="#fff"/><stop offset=".7" stop-color="#9beee9"/><stop offset="1" stop-color="#2a9eb4"/></radialGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#sky)"/>
+  <circle cx="1280" cy="170" r="82" fill="url(#moon)"/>
+  <circle cx="1120" cy="110" r="32" fill="#c8ffff" opacity=".9"/>
+  <path d="M0 650Q220 540 400 660T800 640t400 20t400-20v260H0z" fill="#07150f"/>
+  <g fill="#080d0e" stroke="#39c9d1" stroke-width="5">
+    <path d="M250 690q0-260 45-350q45 90 45 350z"/><circle cx="295" cy="335" r="88"/>
+    <path d="M1160 700q0-300 52-410q52 110 52 410z"/><circle cx="1212" cy="285" r="102"/>
+  </g>
+  <g fill="#67e6e4" opacity=".8"><circle cx="520" cy="610" r="7"/><circle cx="590" cy="550" r="5"/><circle cx="950" cy="590" r="8"/><circle cx="1050" cy="620" r="5"/></g>
+  <path d="M0 760q320-105 640 20t640-20t320 10v130H0z" fill="#07110f"/>
+  <g transform="translate(690 245)">
+    <ellipse cx="110" cy="155" rx="100" ry="145" fill="#57bdcf" stroke="#a9f2f4" stroke-width="6"/>
+    <ellipse cx="110" cy="155" rx="38" ry="42" fill="#e5c64d"/>
+    <path d="M70 250q40 30 80 0" fill="none" stroke="#07516a" stroke-width="10"/>
+  </g>
+</svg>
