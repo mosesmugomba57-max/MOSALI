@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { HeroBanner } from "../../components/movie/HeroBanner";
 import { MovieRow } from "../../components/movie/MovieRow";
+import { Footer } from "../../components/Footer";
 import {
   fetchTrending,
   fetchPopular,
@@ -64,21 +65,24 @@ export function Home() {
   const featured = trending[0] || popular[0] || null;
 
   return (
-    <div className="min-h-screen bg-black text-white">
-      <HeroBanner movie={featured} />
+    <>
+      <div className="min-h-screen bg-black text-white">
+        <HeroBanner movie={featured} />
 
-      <div className="relative z-10 -mt-16 pb-16">
-        {error && (
-          <div className="mx-4 mb-6 rounded-lg border border-red-800 bg-red-950/50 px-4 py-3 text-sm text-red-300 sm:mx-8">
-            {error}
-          </div>
-        )}
+        <div className="relative z-10 -mt-16 pb-16">
+          {error && (
+            <div className="mx-4 mb-6 rounded-lg border border-red-800 bg-red-950/50 px-4 py-3 text-sm text-red-300 sm:mx-8">
+              {error}
+            </div>
+          )}
 
-        <MovieRow title="Trending Now" movies={trending} loading={loading} />
-        <MovieRow title="Popular on MOSALI" movies={popular} loading={loading} />
-        <MovieRow title="Top Rated" movies={topRated} loading={loading} />
-        <MovieRow title="Coming Soon" movies={upcoming} loading={loading} />
+          <MovieRow title="Trending Now" movies={trending} loading={loading} />
+          <MovieRow title="Popular on MOSALI" movies={popular} loading={loading} />
+          <MovieRow title="Top Rated" movies={topRated} loading={loading} />
+          <MovieRow title="Coming Soon" movies={upcoming} loading={loading} />
+        </div>
       </div>
-    </div>
+      <Footer />
+    </>
   );
 }

@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { downloads } from '../../data/downloads';
 import { DownloadCard } from '../../components/downloads/DownloadCard/DownloadCard';
+import { Footer } from '../../components/Footer';
 
 export function Downloads() {
 
@@ -36,7 +37,7 @@ export function Downloads() {
     }
 
     return (
-
+        <>
         <div 
         ref={pageRef}
         className="min-h-screen bg-black px-8 pb-10 pt-24">
@@ -62,7 +63,8 @@ export function Downloads() {
             </div>
 
         </div>
-
+        <Footer />
+        </>
     );
 
 }
