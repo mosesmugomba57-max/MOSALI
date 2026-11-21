@@ -49,8 +49,15 @@ async function tmdbFetch(endpoint, params = {}) {
   return res.json();
 }
 
+const SAMPLE_STREAMS = [
+  "https://media.w3.org/2010/05/sintel/trailer.mp4",
+  "https://media.w3.org/2010/05/bunny/trailer.mp4",
+  "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4",
+];
+
 /** Normalize a TMDB movie object into the shape the frontend expects */
 export function normalizeMovie(m) {
+  const streamIdx = Math.abs(Number(m.id) || 1) % SAMPLE_STREAMS.length;
   return {
     id: m.id,
     title: m.title || m.name,
@@ -65,6 +72,7 @@ export function normalizeMovie(m) {
     genre_ids: m.genre_ids || [],
     genres: m.genres ? m.genres.map((g) => g.name) : [],
     popularity: m.popularity,
+    stream_url: m.stream_url || SAMPLE_STREAMS[streamIdx],
   };
 }
 

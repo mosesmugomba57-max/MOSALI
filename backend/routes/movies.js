@@ -112,7 +112,8 @@ router.get("/:id", async (req, res) => {
   try {
     const id = req.params.id;
     if (isTmdbEnabled()) {
-      return res.json(await getMovieById(id));
+      const data = await getMovieById(id);
+      return res.json(data);
     }
     const movie = mockMovies.find((m) => String(m.id) === String(id));
     if (!movie) return res.status(404).json({ error: "Movie not found" });
@@ -122,6 +123,7 @@ router.get("/:id", async (req, res) => {
       rating: movie.vote_average,
       cast: [],
       similar: mockMovies.filter((m) => m.id !== movie.id).slice(0, 6),
+      stream_url: movie.stream_url || "https://media.w3.org/2010/05/sintel/trailer.mp4",
     });
   } catch (err) {
     res.status(500).json({ error: err.message });
